@@ -18,13 +18,13 @@ def minOperations(n):
     if (not isinstance(n, int)):
         return 0
 
-    if (n < 0):
+    if (n <= 0):
         return 0
-    
-    res = 0;
-    
-    for i in range (2, n):
+
+    res = 0
+
+    for i in range(2, n):
         while n % i == 0:
             res += i
-            n = n/i
+            n = n / i
     return res
