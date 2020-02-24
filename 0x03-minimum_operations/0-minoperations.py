@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module used to 
+Module used to min ops
 """
 
 
