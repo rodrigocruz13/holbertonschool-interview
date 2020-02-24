@@ -15,8 +15,8 @@ def minOperations(n):
         0 if it is impossible to achieve
     """
 
-    if (not isinstance(n, int)):
-        return 0
+    # if (not isinstance(n, int)):
+    #     return 0
 
     if (n < 2):
         return 0
