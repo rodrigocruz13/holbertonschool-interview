@@ -1,14 +1,15 @@
-# 0x01. Insert in sorted linked list
+# 0x02. Heap Insert
 ## Specializations - Interview Preparation ― Algorithms
 
-![insert](https://i.imgur.com/AXf8sxF.gif)
+![tree](https://i.imgur.com/Jy2zM5X.png)
 ## Tasks
 
 Technical interview preparation:
 
-You are not allowed to google anything
-Whiteboard first
-Write a function in C that inserts a number into a sorted singly linked list.
+Write a function that creates a binary tree node:
 
-Prototype: listint_t *insert_node(listint_t **head, int number);
-Return: the address of the new node, or NULL if it failed
+Prototype: binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
+parent is a pointer to the parent node of the node to create
+value is the value to put in the new node
+When created, a node does not have any children
+Your function must return a pointer to the new node, or NULL on failure
