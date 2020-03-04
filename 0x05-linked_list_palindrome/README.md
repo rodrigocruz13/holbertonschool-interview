@@ -1,17 +1,14 @@
-# 0x04. Sandpiles
+# 0x05. Linked list palindrome
 
 ## Specializations - Interview Preparation ― Algorithms
 
-![img](https://i.imgur.com/iArXhM2.png)[/img]
+![img](https://i.imgur.com/wZit2iP.jpg)[/img]
 ## Tasks
 
 Technical interview preparation:
 
-Write a function that computes the sum of two sandpiles
+Write a function in C that checks if a singly linked list is a palindrome.
 
-Prototype: void sandpiles_sum(int grid1[3][3], int grid2[3][3]);
-You can assume that both grid1 and grid2 are individually stable
-A sandpile is considered stable when none of its cells contains more than 3 grains
-When your function is done, grid1 must be stable
-grid1 must be printed before each toppling round, only if it is unstable (See example)
-You’re not allowed to allocate memory dynamically
+Prototype: int is_palindrome(listint_t **head);
+Return: 0 if it is not a palindrome, 1 if it is a palindrome
+An empty list is considered a palindrome
