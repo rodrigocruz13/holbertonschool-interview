@@ -2,7 +2,7 @@
 
 ## Specializations - Interview Preparation ― Algorithms
 
-![img](https://i.imgur.com/wZit2iP.jpg)[/img]
+![Palindrome](https://i.imgur.com/wZit2iP.jpg)
 ## Tasks
 
 Technical interview preparation:
