@@ -22,6 +22,9 @@ int is_palindrome(listint_t **head)
 		array_inverse[tam - i - 1] = current->n;
 	}
 
+	if (current == NULL || tam < 2)
+		return (1);
+
 	for (i = 0; i < tam; i++)
 	{
 		if (array_right[i] != array_inverse[tam - i - 1])
