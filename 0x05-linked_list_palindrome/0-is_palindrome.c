@@ -10,36 +10,23 @@
  */
 int is_palindrome(listint_t **head)
 {
-	const listint_t *current;
-	int i, tam;
-	int array_right[64000];
-	int array_inverse[64000];
+	size_t i, tam;
+    int array[1000000];
+    listint_t *temp;
 
-	if (head == NULL)
-		return (1);
+    temp = *head;
+    if (temp == NULL)
+        return (1);
 
-	current = *head;
-	if (current == NULL)
+	if (temp != NULL)
 	{
-		return (1);
+		for (tam = 0; temp != NULL; temp = temp->next, tam++)
+            array[tam] = temp->n;
 	}
-
-	for (i = 0, tam = 0; current != NULL; current = current->next, i++, tam++)
-	{
-		array_right[i] = current->n;
-		array_inverse[64000 - i - 1] = current->n;
-	}
-
-	if (tam < 2)
-	{
-		return (1);
-	}
-	for (i = 0; i < tam; i++)
-	{
-		if (array_right[i] != array_inverse[64000 - i - 1])
-		{
-			return (0);
-		}
-	}
-	return (1);
+    for (i = 0; i < tam / 2; i++)
+    {
+        if (array[i] != array [tam - i - 1])
+            return(0);
+    }
+    return (1);
 }
