@@ -14,21 +14,31 @@ int is_palindrome(listint_t **head)
 	int array_right[32000];
 	int array_inverse[32000];
 
+	if (head == NULL)
+		return (1);
+
 	current = *head;
+	if (current == NULL)
+	{
+		return (1);
+	}
 
 	for (i = 0, tam = 0; current != NULL; current = current->next, i++, tam++)
 	{
 		array_right[i] = current->n;
-		array_inverse[tam - i - 1] = current->n;
+		array_inverse[32000 - i - 1] = current->n;
 	}
 
-	if (current == NULL || tam < 2)
+	if (tam < 2)
+	{
 		return (1);
-
+	}
 	for (i = 0; i < tam; i++)
 	{
-		if (array_right[i] != array_inverse[tam - i - 1])
+		if (array_right[i] != array_inverse[32000 - i - 1])
+		{
 			return (0);
+		}
 	}
 	return (1);
 }
