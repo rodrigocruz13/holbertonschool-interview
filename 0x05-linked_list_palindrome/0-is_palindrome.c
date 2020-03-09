@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
+ 
+# define MAX_SIZE 64000
 
 /**
  * is_palindrome- prints all elements of a listint_t list
@@ -11,8 +13,8 @@ int is_palindrome(listint_t **head)
 {
 	const listint_t *current;
 	int i, tam;
-	int array_right[32000];
-	int array_inverse[32000];
+	int array_right[MAX_SIZE];
+	int array_inverse[MAX_SIZE];
 
 	if (head == NULL)
 		return (1);
@@ -26,7 +28,7 @@ int is_palindrome(listint_t **head)
 	for (i = 0, tam = 0; current != NULL; current = current->next, i++, tam++)
 	{
 		array_right[i] = current->n;
-		array_inverse[32000 - i - 1] = current->n;
+		array_inverse[MAX_SIZE - i - 1] = current->n;
 	}
 
 	if (tam < 2)
@@ -35,7 +37,7 @@ int is_palindrome(listint_t **head)
 	}
 	for (i = 0; i < tam; i++)
 	{
-		if (array_right[i] != array_inverse[32000 - i - 1])
+		if (array_right[i] != array_inverse[MAX_SIZE - i - 1])
 		{
 			return (0);
 		}
