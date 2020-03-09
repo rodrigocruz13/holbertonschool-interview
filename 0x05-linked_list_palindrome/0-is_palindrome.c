@@ -13,12 +13,19 @@ int is_palindrome(listint_t **head)
 	unsigned int n; /* number of nodes */
 	int palind = 0;
 
-	current = *head;
+	
+	if (head == NULL)
+		return (0);
 
-	/* Calulate size */
-	if (current != NULL)
-		n = size_listint(current);
-	if (n > 0)
+	current = *head;
+	if (current == NULL)
+		return (0);
+	
+	n = size_listint(current);
+	if (n == 0)
+		return (1);
+
+	else
 	{
 		palind = calculate_palind(current, n);
 		return (palind);
