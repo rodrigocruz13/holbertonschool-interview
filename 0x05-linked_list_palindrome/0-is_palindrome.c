@@ -15,6 +15,7 @@ int is_palindrome(listint_t **head)
 	int array_inverse[32000];
 
 	current = *head;
+
 	for (i = 0, tam = 0; current != NULL; current = current->next, i++, tam++)
 	{
 		array_right[i] = current->n;
