@@ -4,17 +4,17 @@ import sys
 import re
 
 parsed_line = []
-dict_sc = { 200: "0",
-            301: "0", 
-            400: "0",
-            401: "0",
-            403: "0",
-            404: "0",
-            405: "0",
-            500: "0"
-          }
+dict_sc = {200: "0",
+           301: "0",
+           400: "0",
+           401: "0",
+           403: "0",
+           404: "0",
+           405: "0",
+           500: "0"}
 total_file_size = 0
 count = 0
+
 
 def print_msg(dict_sc, total_file_size):
     """
@@ -32,20 +32,20 @@ def print_msg(dict_sc, total_file_size):
         if(dict_sc[i] is not "0"):
             print("{}: {}".format(i, dict_sc[i]))
 
-try:
-    for line in sys.stdin:
-        parsed_line = re.split(r'[-+#\s*$ ]', line) # ✄ trimming
-        sc = int(parsed_line[10])  # status code
-        total_file_size += int(parsed_line[11])  # file size
+    try:
+        for line in sys.stdin:
+            parsed_line = re.split(r'[-+#\s*$ ]', line)  # ✄ trimming
+            sc = int(parsed_line[10])  # status code
+            total_file_size += int(parsed_line[11])  # file size
 
-        if (sc in sorted(dict_sc.keys())):
-            temp = int(dict_sc[sc]) + 1
-            dict_sc[sc] = str(temp)
+            if (sc in sorted(dict_sc.keys())):
+                temp = int(dict_sc[sc]) + 1
+                dict_sc[sc] = str(temp)
 
-        if (count % 10 == 0 and count > 0):
-            print_msg(dict_sc, total_file_size)
-        count += 1
+            if (count % 10 == 0 and count > 0):
+                print_msg(dict_sc, total_file_size)
+            count += 1
 
-except KeyboardInterrupt:
-    print_msg(dict_sc, total_file_size)
-    sys.exit()
+    except KeyboardInterrupt:
+        print_msg(dict_sc, total_file_size)
+        sys.exit()
