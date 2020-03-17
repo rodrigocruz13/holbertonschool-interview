@@ -17,7 +17,7 @@ def print_msg(dict_sc, total_file_size):
     print("File size: {}".format(total_file_size))
     for i in sorted(dict_sc.keys()):
         if(dict_sc[i] is not "0"):
-            print("{:}: {:}".format(i, dict_sc[i]))
+            print("{:}: {:d}".format(i, int(dict_sc[i])))
 
 
 parsed_line = []
@@ -43,14 +43,12 @@ try:
             if (sc in sorted(dict_sc.keys())):
                 temp = int(dict_sc[sc]) + 1
                 dict_sc[sc] = str(temp)
+            count += 1
 
         if (count % 10 == 0 and count > 0):
             print_msg(dict_sc, total_file_size)
-        count += 1
 
 except Exception:
     pass
-
 finally:
     print_msg(dict_sc, total_file_size)
-sys.exit()
