@@ -22,7 +22,14 @@ def print_msg(dict_sc, total_file_size):
 
 total_file_size = 0
 count = 0
-dict_sc = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+dict_sc = {"200": 0,
+           "301": 0, 
+           "400": 0,
+           "401": 0,
+           "403": 0,
+           "404": 0,
+           "405": 0,
+           "500": 0}
 
 try:
     for line in sys.stdin:
