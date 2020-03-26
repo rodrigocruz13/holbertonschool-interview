@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+
+/**
+ * is_palindrome- prints all elements of a listint_t list
+ * @n: unsigned long number
+ * Return: 1 if palindrome, 0 if not
+ */
+int is_palindrome(unsigned long n)
+{
+    unsigned long original_num, remainder, reversed_num;
+
+    original_num = n;
+     while (n != 0) {
+        remainder = n % 10;
+        reversed_num = reversed_num * 10 + remainder;
+        n = n / 10;
+    }
+
+    if (original_num == reversed_num)
+        return(1);
+
+    return (0);
+}
