@@ -13,22 +13,22 @@
  */
 int main(int ac, char **av)
 {
-    unsigned long n;
-    int ret;
+	unsigned long n;
+	int ret;
 
-    if (ac < 2)
-    {
-        fprintf(stderr, "Usage: %s arg\n", av[0]);
-        return (EXIT_FAILURE);
-    }
+	if (ac < 2)
+	{
+		fprintf(stderr, "Usage: %s arg\n", av[0]);
+		return (EXIT_FAILURE);
+	}
 
-    n = (unsigned long)(atol(av[1]));
-    ret = is_palindrome(n);
+	n = (unsigned long)(atol(av[1]));
+	ret = is_palindrome(n);
 
-    printf("%lu is ", n);
-    if (ret == 0)
-        printf("not ");
-    printf("a palindrome.\n");
+	printf("%lu is ", n);
+	if (ret == 0)
+		printf("not ");
+	printf("a palindrome.\n");
 
-    return (EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
