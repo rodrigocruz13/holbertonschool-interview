@@ -9,7 +9,9 @@
  */
 int is_palindrome(unsigned long n)
 {
-    unsigned long original_num, remainder, reversed_num;
+    unsigned long original_num = 0;
+    unsigned long remainder = 0;
+    unsigned long reversed_num = 0;
 
     original_num = n;
      while (n != 0) {
