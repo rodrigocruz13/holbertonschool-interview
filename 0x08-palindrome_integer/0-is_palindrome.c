@@ -3,7 +3,7 @@
 
 
 /**
- * is_palindrome- prints all elements of a listint_t list
+ * is_palindrome- finds if a number is palindrome
  * @n: unsigned long number
  * Return: 1 if palindrome, 0 if not
  */
