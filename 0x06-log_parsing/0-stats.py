@@ -35,7 +35,7 @@ try:
     for line in sys.stdin:
         parsed_line = re.split(r'[-+#\s*$ ]', line)  # ✄ trimming
 
-        if len(parsed_line) > 9:
+        if len(parsed_line) > 2:
             count += 1
 
             if count <= 10:
@@ -45,7 +45,7 @@ try:
                 if (sc in dict_sc.keys()):
                     dict_sc[sc] += 1
 
-            if (count % 10 == 0):
+            if (count == 10):
                 print_msg(dict_sc, total_file_size)
                 count = 0
 
