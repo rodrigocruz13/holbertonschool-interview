@@ -34,7 +34,7 @@ def validUTF8(data):
         # If this is the case then start processing a new UTF-8 character.
         if n_bytes == 0:
 
-            # Get the number of 1s in the beginning of the string.
+            # Get the number of 1 in the beginning of the string.
             for bit in bin_rep:
                 if bit == '0':
                     break
@@ -59,4 +59,4 @@ def validUTF8(data):
 
     # This is for the case where we might not have the complete data for
     # a particular UTF-8 character.
-    return False
+    return n_bytes == 0
