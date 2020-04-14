@@ -10,44 +10,43 @@
 
 int slide_line(int *line, size_t size, int direction)
 {
-	int h_d, x, move, stop;
+	size_t p1 = 0, p2 = 1, tmp1, tmp2, aux1, flag = 0;
 
-	if (size <= 1)
+	if (direction != SLIDE_RIGHT && direction != SLIDE_LEFT)
 		return (0);
 
-	if (direction == SLIDE_RIGHT)
-	{	x = size - 2;
-		h_d = size - 1;
-		move = -1;
-		stop = -1;
+	p1 = (direction == SLIDE_RIGHT) ? size - 1 : p1;
+	p2 = (direction == SLIDE_RIGHT) ? size - 2 : p2;
 
-	}
-	else if (direction == SLIDE_LEFT)
-	{	x = 1;
-		h_d = 0;
-		move = 1;
-		stop = size;
-	}
-
-	while (x != stop)
-	{
-		if (line[x] != 0 && line[x] == line[h_d])
-		{	line[x] = 0;
-			line[h_d] *= 2;
-			h_d += move;
+	for (tmp1 = 0; tmp1 < size; tmp1++)
+	{   flag = 0;
+		aux1 = p2;
+		for (tmp2 = tmp1 + 1; tmp2 < size; tmp2++)
+		{
+			if (line[p2] == line[p1] && line[p1] != 0)
+			{	line[p1] = 2 * line[p1];
+				line[p2] = 0;
+				break;
+			}
+			if (line[p2] == 0 && line[p1] != 0)
+			{	line[p1] = line[p2];
+				line[p2] = 0;
+				flag = 1;
+				p2 = aux1;
+				tmp1 = tmp1 - 1;
+				break;
+			}
+			if (line[p2] != 0)
+				break;
+			direction == SLIDE_LEFT ? p2++ : p2--;
 		}
-		else if (line[x] != 0 && line[h_d] == 0)
-		{	line[h_d] = line[x];
-			line[x] = 0;
-		}
-		else
-			h_d += move;
-
-		if ((line[x] != 0) && (x + move == stop) && line[h_d] == 0)
-		{	line[h_d] = line[x];
-			line[x] = 0;
-		}
-		x += move;
+		if (line[p1] == 0)
+			break;
+		if (flag == 0)
+		{	p1 = (direction == SLIDE_LEFT) ? p1 + 1 : p1;
+			p1 = (direction == SLIDE_RIGHT) ? p1 - 1 : p1;
+			p2 = (direction == SLIDE_LEFT) ? p1 + 1 : p2;
+			p2 = (direction == SLIDE_RIGHT) ? p1 - 1 : p2; }
 	}
 	return (1);
 }
