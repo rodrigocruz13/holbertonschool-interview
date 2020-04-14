@@ -10,43 +10,42 @@
 
 int slide_line(int *line, size_t size, int direction)
 {
-	size_t p1 = 0, p2 = 1, tmp1, tmp2, aux1, flag = 0;
+	size_t pos1 = 0, pos2 = 1, temp1, temp2, aux1, flag = 0;
 
-	if (direction != SLIDE_RIGHT && direction != SLIDE_LEFT)
+	if (direction != SLIDE_LEFT && direction != SLIDE_RIGHT)
 		return (0);
+	pos1 = (direction == SLIDE_RIGHT) ? size - 1 : pos1;
+	pos2 = (direction == SLIDE_RIGHT) ? size - 2 : pos2;
 
-	p1 = (direction == SLIDE_RIGHT) ? size - 1 : p1;
-	p2 = (direction == SLIDE_RIGHT) ? size - 2 : p2;
-
-	for (tmp1 = 0; tmp1 < size; tmp1++)
-	{   flag = 0;
-		aux1 = p2;
-		for (tmp2 = tmp1 + 1; tmp2 < size; tmp2++)
+	for (temp1 = 0; temp1 < size; temp1++)
+	{       aux1 = pos2;
+		flag = 0;
+		for (temp2 = temp1 + 1; temp2 < size; temp2++)
 		{
-			if (line[p2] == line[p1] && line[p1] != 0)
-			{	line[p1] = 2 * line[p1];
-				line[p2] = 0;
-				break;
-			}
-			if (line[p2] == 0 && line[p1] != 0)
-			{	line[p1] = line[p2];
-				line[p2] = 0;
+			if (line[pos1] != 0 && line[pos2] == line[pos1])
+			{	line[pos1] = line[pos1] * 2;
+				line[pos2] = 0;
+				break; }
+
+			if (line[pos1] == 0 && line[pos2] != 0)
+			{	line[pos1] = line[pos2];
+				line[pos2] = 0;
 				flag = 1;
-				p2 = aux1;
-				tmp1 = tmp1 - 1;
+				pos2 = aux1;
+				temp1--;
+				break; }
+
+			if (line[pos2] != 0)
 				break;
-			}
-			if (line[p2] != 0)
-				break;
-			direction == SLIDE_LEFT ? p2++ : p2--;
+			direction == SLIDE_LEFT ? pos2++ : pos2--;
 		}
-		if (line[p1] == 0)
+		if (line[pos1] == 0)
 			break;
 		if (flag == 0)
-		{	p1 = (direction == SLIDE_LEFT) ? p1 + 1 : p1;
-			p1 = (direction == SLIDE_RIGHT) ? p1 - 1 : p1;
-			p2 = (direction == SLIDE_LEFT) ? p1 + 1 : p2;
-			p2 = (direction == SLIDE_RIGHT) ? p1 - 1 : p2; }
+		{	pos1 = (direction == SLIDE_LEFT) ? pos1 + 1 : pos1;
+			pos1 = (direction == SLIDE_RIGHT) ? pos1 - 1 : pos1;
+			pos2 = (direction == SLIDE_LEFT) ? pos1 + 1 : pos2;
+			pos2 = (direction == SLIDE_RIGHT) ? pos1 - 1 : pos2; }
 	}
 	return (1);
 }
