@@ -1,4 +1,4 @@
-# 0x03. 0x03. Minimum Operations
+# 0x03. Minimum Operations
 
 ## Specializations - Interview Preparation ― Algorithms
 
@@ -36,8 +36,9 @@ print("Min number of operations to reach {} characters: {}".format(n, minOperati
 n = 12
 print("Min number of operations to reach {} characters: {}".format(n, minOperations(n)))
 
+```
+
 carrie@ubuntu:~/0x03-minoperations$
 carrie@ubuntu:~/0x03-minoperations$ ./0-main.py
 Min number of operations to reach 4 characters: 4
 Min number of operations to reach 12 characters: 7
-```
