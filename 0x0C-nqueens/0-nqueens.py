@@ -100,11 +100,11 @@ if len(sys.argv) != 2:
 try:
     n = int(sys.argv[1])
 except BaseException:
-    print("N must be a number\n")
+    print("N must be a number")
     exit(1)
 
 if (n < 4):
-    print("N must be at least 4\n")
+    print("N must be at least 4")
     exit(1)
 
 # 2. Generate the board
