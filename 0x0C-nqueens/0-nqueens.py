@@ -94,7 +94,7 @@ def create_chess_board(size):
 
 # 1. Read and validate size of the board
 if len(sys.argv) != 2:
-    print("Usage: nqueens N\n")
+    print("Usage: nqueens N")
     exit(1)
 
 try:
