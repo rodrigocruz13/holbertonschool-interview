@@ -13,8 +13,7 @@
  * @next:       Pointer to the next node
  * @express:    Pointer to the next node in the express lane
  *
- * Description: Singly linked list node structure with an express lane
- *              for Holberton project
+ * Description: Singly linked 
  */
 typedef struct skiplist_s
 {
