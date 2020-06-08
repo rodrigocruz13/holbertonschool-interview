@@ -21,26 +21,38 @@ def rain(arr):
                integer indicating total amount of rainwater retained
     """
 
-    if (arr is not None or len(arr) > 0):
+    if (arr is None):
+        return 0
 
-        n = len(arr)
-        res = 0
+    if not (isinstance(arr, list)):
+        return 0
 
-        for i in range(1, n - 1):
+    n = len(arr)
+    if (n < 2):
+        return 0
 
-            # Find the maximum element on its left
-            left = arr[i]
-            for j in range(i):
-                left = max(left, arr[j])
+    if not all(isinstance(n, int) for n in arr):  # any no integer
+        return 0
 
-            # Find the maximum element on its right
-            right = arr[i]
+    if (len([num for num in arr if num < 0]) > 0):  # any negative
+        return 0
 
-            for j in range(i + 1, n):
-                right = max(right, arr[j])
+    rain = 0
 
-            # Update the maximum water
-            res = res + (min(left, right) - arr[i])
+    for i in range(1, n - 1):
 
-        return res
-    return 0
+        # Find the maximum element on its left
+        left = arr[i]
+        for j in range(i):
+            left = max(left, arr[j])
+
+        # Find the maximum element on its right
+        right = arr[i]
+
+        for j in range(i + 1, n):
+            right = max(right, arr[j])
+
+        # Update the maximum water
+        rain += (min(left, right) - arr[i])
+
+    return rain
