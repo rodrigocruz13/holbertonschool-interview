@@ -41,7 +41,6 @@ def rain(arr):
         return 0
 
     rain = 0
-
     for i in range(1, n - 1):
 
         # Find the maximum element on its left
@@ -51,11 +50,10 @@ def rain(arr):
 
         # Find the maximum element on its right
         right = arr[i]
-
         for j in range(i + 1, n):
             right = max(right, arr[j])
 
-        # Update the maximum water
+        # Update the maximum of rain collected
         rain += (min(left, right) - arr[i])
 
     return rain
