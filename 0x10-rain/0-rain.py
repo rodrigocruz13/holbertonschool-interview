@@ -20,7 +20,7 @@ def rain(arr):
 
     Returns
     -------
-    - water  : Int
+    - rain  : Int
                integer indicating total amount of rainwater retained
     """
 
