@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Module used to
+"""
 
 
 def rain(arr):
