@@ -7,7 +7,7 @@
 
 /**
  * print_array - Prints out an array of integer, followed by a new line
- * 
+ *
  * @array: Pointer to the array of integer to be printed
  * @size: Number of elements in @array
  */
