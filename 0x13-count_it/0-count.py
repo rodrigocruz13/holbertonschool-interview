@@ -8,7 +8,7 @@ import requests
 
 def count_words(subreddit, word_list):
     """
-    [Auxiliar function that invoques the funtion alt_count_words]
+    Auxiliar function that invoques the funtion alt_count_words
 
     Args:
         subreddit ([str]): [The subreddit to search]
@@ -27,10 +27,10 @@ def count_words(subreddit, word_list):
 
 def alt_count_words(subreddit, word_list, instances={}, after="", count=0):
     """
-    [recursive function that queries the Reddit API, parses the title of all
+    recursive function that queries the Reddit API, parses the title of all
     hot articles, and prints a sorted count of given keywords
     (case-insensitive, delimited by spaces. Javascript should count as
-    javascript, but java should not).]
+    javascript, but java should not)
 
     Args:
         subreddit ([str]): [The subreddit to search]
@@ -73,6 +73,6 @@ def alt_count_words(subreddit, word_list, instances={}, after="", count=0):
         code.sort(reverse=True)
         for k in code:
             item, value = k[0], k[1]
-            [print("{}: {}".format(value, item))]
+            print("{}: {}".format(value, item))
     else:
         alt_count_words(subreddit, word_list, instances, after, count)
