@@ -51,6 +51,7 @@ def alt_count_words(subreddit, word_list, instances={}, after="", count=0):
         if (response.status_code > 300):
             raise BaseException
     except BaseException:
+        print("")
         return
 
     rr = rr.get("data")
@@ -66,6 +67,7 @@ def alt_count_words(subreddit, word_list, instances={}, after="", count=0):
 
     if (after is None):
         if (len(instances) == 0):
+            print("")
             return
         code = []
         for item, value in instances.items():
