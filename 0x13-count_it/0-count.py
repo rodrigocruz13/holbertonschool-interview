@@ -6,6 +6,15 @@ N queens
 import requests
 
 
+def SortTuple(tup):
+
+    # Getting the length of list
+    # of tuples
+    tup.sort(key = lambda x: x[0])
+
+    return tup
+
+
 def count_words(subreddit, word_list):
     """
     [Auxiliar function that invoques the funtion alt_count_words]
@@ -51,7 +60,6 @@ def alt_count_words(subreddit, word_list, instances={}, after="", count=0):
         if (response.status_code > 300):
             raise BaseException
     except BaseException:
-        print("")
         return
 
     rr = rr.get("data")
@@ -67,9 +75,11 @@ def alt_count_words(subreddit, word_list, instances={}, after="", count=0):
 
     if (after is None):
         if (len(instances) == 0):
-            print("")
             return
-        instances = sorted(instances.items(), key=lambda x: (-x[1], x[0]))
-        [print("{}: {}".format(k, v)) for k, v in instances]
+
+        co = []
+        [co.append(str(i) + '-' + str(j)) for i, j in instances.items()]
+        co.sort()
+        [print("{}: {}".format(k.split("-")[0], k.split("-")[1])) for k in co]
     else:
         alt_count_words(subreddit, word_list, instances, after, count)
