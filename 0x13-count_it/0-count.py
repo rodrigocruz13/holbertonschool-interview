@@ -78,8 +78,8 @@ def alt_count_words(subreddit, word_list, instances={}, after="", count=0):
             return
 
         co = []
-        [co.append(str(i) + '-' + str(j)) for i, j in instances.items()]
-        co.sort()
-        [print("{}: {}".format(k.split("-")[0], k.split("-")[1])) for k in co]
+        [co.append(str(j) + '-' + str(i)) for i, j in instances.items()]
+        co.sort(reverse=True)
+        [print("{}: {}".format(k.split("-")[1], k.split("-")[0])) for k in co]
     else:
         alt_count_words(subreddit, word_list, instances, after, count)
