@@ -6,15 +6,6 @@ N queens
 import requests
 
 
-def SortTuple(tup):
-
-    # Getting the length of list
-    # of tuples
-    tup.sort(key = lambda x: x[0])
-
-    return tup
-
-
 def count_words(subreddit, word_list):
     """
     [Auxiliar function that invoques the funtion alt_count_words]
