@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" API """
+"""
+N queens
+"""
 
 import requests
 import sys
