@@ -4,11 +4,11 @@ N queens
 """
 
 import requests
-import sys
 
 
 def count_words(subreddit, word_list):
-    """[Auxiliar function that invoques the funtion alt_count_words]
+    """
+    [Auxiliar function that invoques the funtion alt_count_words]
 
     Args:
         subreddit ([str]): [The subreddit to search]
