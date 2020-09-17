@@ -51,7 +51,6 @@ def alt_count_words(subreddit, word_list, instances={}, after="", count=0):
         if (response.status_code > 300):
             raise BaseException
     except BaseException:
-        print("")
         return
 
     rr = rr.get("data")
