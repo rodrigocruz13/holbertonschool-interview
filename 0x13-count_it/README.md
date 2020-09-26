@@ -1,10 +1,8 @@
-# 0x13. Count it!
-
+# 0x13. Count it
 
 ## Specializations - Interview Preparation ― Algorithms
 
 ![Reddit](https://publish.illinois.edu/commonsknowledge/files/2018/04/1200px-Reddit_logo_and_wordmark.svg_.png)
-
 
 Technical interview preparation:
 
@@ -31,8 +29,11 @@ If no posts match or the subreddit is invalid, print a newline.
 NOTE: Invalid subreddits may return a redirect to search results. Ensure that
 you are NOT following redirects.
 
+```bash
+$cat 0-main.py
 ```
-$ cat 0-main.py
+
+```python
 #!/usr/bin/python3
 import sys
 
@@ -43,8 +44,10 @@ if __name__ == '__main__':
         print("Ex: {} programming 'python java javascript'".format(sys.argv[0]))
     else:
         result = count_words(sys.argv[1], [x for x in sys.argv[2].split()])
+```
 
-user@ubuntu:~/0x13-count_it $ ./0-main.py programming 'python java javascript scala no_results_for_this_one'
+```bash
+$./0-main.py programming 'python java javascript scala no_results_for_this_one'
 java: 27
 javascript: 20
 python: 17
@@ -52,6 +55,5 @@ scala: 4
 
 $./0-main.py not_a_valid_subreddit 'python java javascript scala no_results_for_this_one'
 $./0-main.py not_a_valid_subreddit 'python java'
-$
 
 ```
