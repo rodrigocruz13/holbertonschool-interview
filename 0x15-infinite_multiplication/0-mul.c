@@ -4,7 +4,7 @@
 /**
  * main - multiplies two positive numbers
  * @argc: argument counter
- * @argv: argument vectors
+ * @argv: argument vector
  * Return: 0
  */
 int main(int argc, char *argv[])
@@ -15,15 +15,12 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	if (*argv[1] == 48 || *argv[2] == 48)
-		printf("0\n");
-	else if (*argv[2] == 49)
-		printf("%s", argv[1]);
-	else
-		/* Fill the arrays of multiplication times argv[1]*/
-		multiply(argv[1], argv[2]);
+	/* Fill the arrays of multiplication times argv[1]*/
+	multiply(argv[1], argv[2]);
 	return (0);
 }
+
+/*corergir lo anterior, porq solo compara el primer caracter*/
 
 /**
  * multiply - Fills an array with the multiplication num_1 times i
@@ -46,6 +43,7 @@ void multiply(char *num_1, char *num_2)
 		for (j = 0; j < MAX2; j++)
 			answer[i][j] = '.';
 
+
 	/* 1. Creating multiplication table*/
 	for (tag = 0, i = 0; i < 10; i++)
 	{
@@ -53,27 +51,26 @@ void multiply(char *num_1, char *num_2)
 		{
 			pos_1 = len_1 - j - 1;
 			if (pos_1 >= 0)
-			{
-				res = ((num_1[pos_1] - 48) * i) + tag;
+			{	res = ((num_1[pos_1] - 48) * i) + tag;
 				value = res % 10;
 				mul[i][j] = (value + '0');
 				tag = res / 10;
 			}
 			else
-			{
-				mul[i][j] = (tag != 0) ? tag + 48 : '.';
+			{	mul[i][j] = (tag != 0) ? tag + 48 : '.';
 				tag = 0;
 			}
 		}
 	}
+
 	/* 2. Creating answer table*/
 	for (j = 0; j < len_2; j++)
-	{
-		pos_2 = len_2 - j - 1;
+	{	pos_2 = len_2 - j - 1;
 		row = num_2[pos_2] - 48;
 		for (z = 0; z < len_1 + 1; z++)
 			answer[j][z + j] = mul[row][z];
 	}
+
 	sum_and_print(answer, len_1, len_2);
 }
 
@@ -123,15 +120,16 @@ int is_a_number(char *a_str)
 /**
  * sum_and_print - Generates the sumation and print the results
  * Arguments
- * @answer:	matrix with multiplitation tables
+ * @a:	matrix with multiplitation tables
  * @len_1: len of string 1
  * @len_2: len os string 2
  * Return: noting.
  */
-void sum_and_print(char answer[MAX1][MAX2], int len_1, int len_2)
+void sum_and_print(char a[MAX1][MAX2], int len_1, int len_2)
 {
-	int tag, i, j, sum, value, z;
-	char total[MAX2], t[len_1 + len_2], *r;
+	int tag, i, j, sum, value;
+	char total[MAX2], ans[MAX2 - 1];
+	char *ar;
 
 	/* 3. Add each column from left to right */
 	tag = 0;
@@ -139,19 +137,22 @@ void sum_and_print(char answer[MAX1][MAX2], int len_1, int len_2)
 	{
 		sum = 0;
 		for (i = 0; i < len_2; i++)
-			sum += (answer[i][j] >= '0' && answer[i][j] <= '9') ? answer[i][j] - 48 : 0;
-		value = (sum + tag) % 10;
-		total[j] = (value + '0');
+			sum += (a[i][j] >= '0' && a[i][j] <= '9') ? a[i][j] - 48 : 0;
+		value = (sum + tag) % 10;   /* las digit added */
+		total[j] = (value + '0');   /* converted to*/
 		tag = (sum + tag) / 10;
 	}
 
-	for (i = 0; i < (len_1 + len_2 + 1); i++)
-		for (z = 0; z < i; z++)
-			t[i - z - 1] = total[z];
-	t[z] = '\0';
+	/* Reverse the string */
+	for (i = 0; i < len_1 + len_2; i++)
+	{
+		ans[i] = total[len_1 + len_2 - 1 - i];
+	}
+	ans[i] = '\0';
 
-	r = t;
-	strcpy(r, &t[1]);
+	ar = ans[0] == '0' ? &ans[1] : &ans[0];
 
-	printf("%s", r);
+	/* Print */
+	for (i = 0; *ar != '\0'; ar++)
+		_putchar(*ar);
 }
