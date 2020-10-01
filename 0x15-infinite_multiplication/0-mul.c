@@ -142,6 +142,7 @@ void sum_and_print(char a[MAX1][MAX2], int len_1, int len_2)
 	{
 		_putchar(ar[i]);
 	}
+    putchar('\n');
 }
 
 /**
