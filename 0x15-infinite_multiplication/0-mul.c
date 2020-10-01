@@ -8,13 +8,18 @@
  */
 int main(int argc, char *argv[])
 {
+	char *error = "Error\n";
+	int i;
+
 	if (argc != 3 || !is_a_number(argv[1]) || !is_a_number(argv[2]))
 	{
-		printf("Error\n");
+		for (i = 0; error[i] != '\0'; i++)
+		{
+			_putchar(error[i]);
+		}
 		exit(98);
 	}
 
-	/* Fill the arrays of multiplication times argv[1]*/
 	multiply(argv[1], argv[2]);
 	return (0);
 }
@@ -42,7 +47,6 @@ void multiply(char *num_1, char *num_2)
 		for (j = 0; j < MAX2; j++)
 			answer[i][j] = '.';
 
-
 	/* 1. Creating multiplication table*/
 	for (tag = 0, i = 0; i < 10; i++)
 	{
@@ -69,7 +73,6 @@ void multiply(char *num_1, char *num_2)
 		for (z = 0; z < len_1 + 1; z++)
 			answer[j][z + j] = mul[row][z];
 	}
-
 	sum_and_print(answer, len_1, len_2);
 }
 
@@ -126,6 +129,7 @@ void sum_and_print(char a[MAX1][MAX2], int len_1, int len_2)
 	/* remove 0-s from the left side of the string */
 	value = str_len(ans);
 	for (i = 0; i < value; i++)
+	{
 		if (ans[i] == '0')
 			ar = &ans[i + 1];
 		else
@@ -133,11 +137,12 @@ void sum_and_print(char a[MAX1][MAX2], int len_1, int len_2)
 			ar = &ans[i];
 			i = value;
 		}
-
-	for (i = 0; *ar != '\0'; ar++)
-		_putchar(*ar);
+	}
+	for (i = 0; ar[i] != '\0'; i++)
+	{
+		_putchar(ar[i]);
+	}
 }
-
 
 /**
  * str_len - Calculates the lenght of a string
@@ -150,7 +155,6 @@ int str_len(char *a)
 	int i;
 
 	for (i = 0; a[i] != '\0'; i++)
-	{
-	}
+	{}
 	return (i);
 }
