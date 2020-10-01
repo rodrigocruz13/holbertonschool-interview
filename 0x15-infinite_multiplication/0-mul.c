@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -124,12 +123,19 @@ void sum_and_print(char a[MAX1][MAX2], int len_1, int len_2)
 	}
 	ans[i] = '\0';
 
-	ar = ans[0] == '0' ? &ans[1] : &ans[0];
+	/* remove 0-s from the left side of the string */
+	value = str_len(ans);
+	for (i = 0; i < value; i++)
+		if (ans[i] == '0')
+			ar = &ans[i + 1];
+		else
+		{
+			ar = &ans[i];
+			i = value;
+		}
 
-	/* Print */
 	for (i = 0; *ar != '\0'; ar++)
 		_putchar(*ar);
-	/* _putchar(10); */
 }
 
 
