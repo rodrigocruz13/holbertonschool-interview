@@ -129,4 +129,6 @@ void sum_and_print(char a[MAX1][MAX2], int len_1, int len_2)
 	/* Print */
 	for (i = 0; *ar != '\0'; ar++)
 		_putchar(*ar);
+	_putchar(10);
+
 }
