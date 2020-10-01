@@ -12,7 +12,6 @@
 
 int _putchar(char c);
 void multiply(char *num_1, char *num_2);
-void *create_array(int rows, int cols);
 int is_a_number(char *a_str);
 void sum_and_print(char answer[MAX1][MAX2], int len_1, int len_2);
 
