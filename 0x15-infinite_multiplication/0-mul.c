@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
 		for (i = 0; error[i] != '\0'; i++)
 		{
 			_putchar(error[i]);
-			_putchar('\n');
 		}
 		exit(98);
 	}
