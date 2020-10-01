@@ -35,7 +35,7 @@ void multiply(char *num_1, char *num_2)
 	char mul[10][MAX1], answer[MAX1][MAX2];
 	int tag, i, j, len_1, len_2, res, value, pos_1, pos_2, row, z;
 
-	for (len_1 = strlen(num_1), len_2 = strlen(num_2), i = 0; i < 10; i++)
+	for (len_1 = str_len(num_1), len_2 = str_len(num_2), i = 0; i < 10; i++)
 		for (j = 0; j < MAX1; j++)
 			mul[i][j] = '.';
 
@@ -130,4 +130,21 @@ void sum_and_print(char a[MAX1][MAX2], int len_1, int len_2)
 	for (i = 0; *ar != '\0'; ar++)
 		_putchar(*ar);
 	/* _putchar(10); */
+}
+
+
+/**
+ * str_len - Calculates the lenght of a string
+ * Arguments
+ * @a:	matrix with multiplitation tables
+ * Return: The lengnth of a.
+ */
+int str_len(char *a)
+{
+	int i;
+
+	for (i = 0; a[i] != '\0'; i++)
+	{
+	}
+	return (i);
 }
