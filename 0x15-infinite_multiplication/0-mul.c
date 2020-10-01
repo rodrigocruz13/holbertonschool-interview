@@ -75,32 +75,6 @@ void multiply(char *num_1, char *num_2)
 }
 
 /**
- * create_array - Calculates the size of a string
- * Arguments
- * @rows: string representing a number in 10 base
- * @cols: string representing a number in 10 base
- * Return: The multiplication
- */
-void *create_array(int rows, int cols)
-{
-	int i, j;
-	char(*arr)[rows] = malloc(sizeof(*arr) * cols);
-
-	if (arr == NULL || *arr == NULL)
-	{
-		free(arr);
-		exit(98);
-	}
-	else
-	{
-		for (i = 0; i < rows; i++)
-			for (j = 0; j < cols; j++)
-				arr[i][j] = ' ';
-	}
-	return (arr);
-}
-
-/**
  * is_a_number - Indicates if a string represents a number in 10 base
  * Arguments
  * @a_str: string representing a number in 10 base
