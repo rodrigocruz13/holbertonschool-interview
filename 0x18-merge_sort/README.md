@@ -90,7 +90,7 @@ in the average case
 in the worst case
 
 ```bash
-$ cat 0-main.c
+$cat 0-main.c
 ```
 
 ```C
