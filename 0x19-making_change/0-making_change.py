@@ -25,10 +25,13 @@ def makeChange(coins, total):
     c = c if (c == 0 and all(i > 0 for i in coins)) else -2
 
     # verify total is a positive integer
-    c = c if (isinstance(total, int) and total >= 0) else -1
+    c = 0 if (isinstance(total, int) and total >= 0) else -1
 
     if c < 0:
         return -1
+
+    if c == 0:
+        return 0
 
     my_coins = sorted(coins, reverse=True)
     money_left = total
