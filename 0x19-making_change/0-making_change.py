@@ -15,24 +15,14 @@ def makeChange(coins, total):
             c [int]: (change  [fewest number of coins needed to meet total]
     """
 
-    # verify coins is a list
-    c = 0 if (isinstance(coins, list)) else -4
-
-    # verify all coins are integers
-    c = c if c == 0 and (all(isinstance(n, int) for n in coins)) else -3
-
-    # verify all coins are positive bigger than 0
-    c = c if (c == 0 and all(i > 0 for i in coins)) else -2
-
-    # verify total is a positive integer
-    c = 0 if (isinstance(total, int) and total >= 0) else -1
-
-    if c < 0:
-        return -1
-
-    if c == 0:
+    if total <= 0:
         return 0
 
+    # verify all coins are integers
+    if (coins is None or len(coins) == 0):
+        return -1
+
+    c = 0
     my_coins = sorted(coins, reverse=True)
     money_left = total
 
