@@ -21,7 +21,7 @@ str: the string to copy into the new node
 Returns: Address of the new node, or NULL on failure
 
 ```bash
-$cat print_array.c
+$cat 0-main.c
 ```
 
 ```C
