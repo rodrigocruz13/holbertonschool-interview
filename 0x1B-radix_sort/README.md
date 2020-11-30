@@ -70,7 +70,6 @@ $ cat 0-main.c
 ```
 
 ```C
-alexa@ubuntu-xenial:0x1B-radix_sort$ cat 0-main.c
 #include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"
