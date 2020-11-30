@@ -17,24 +17,39 @@ No more than 5 functions per file
 No standard library functions allowed. Any use of functions like printf, puts, calloc, realloc etc… is forbidden
 In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples
 The prototypes of all your functions should be included in your header file called lists.h
-Don’t forget to push your header file
-All your header files should be include guarded
-Please use this data structure for this project:
+Don’t forget to push your header file.
+All your header files should be include guarded.
+
+For this project you are given the following print_array function:
+
+```bash
+$ cat `print_array.c`
+```
 
 ```C
+#include <stdlib.h>
+#include <stdio.h>
+
 /**
- * struct listint_s - singly linked list
- * @n: integer
- * @next: points to the next node
+ * print_array - Prints an array of integers
  *
- * Description: singly linked list node structure
- * for Holberton project
+ * @array: The array to be printed
+ * @size: Number of elements in @array
  */
-typedef struct listint_s
+void print_array(const int *array, size_t size)
 {
-    int n;
-    struct listint_s *next;
-} listint_t;
+    size_t i;
+
+    i = 0;
+    while (array && i < size)
+    {
+        if (i > 0)
+            printf(", ");
+        printf("%d", array[i]);
+        ++i;
+    }
+    printf("\n");
+}
 ```
 
 ## Tasks
