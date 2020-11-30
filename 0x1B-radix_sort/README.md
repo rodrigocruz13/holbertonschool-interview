@@ -2,7 +2,7 @@
 
 ## Specializations - Interview Preparation ― Algorithms
 
-![loop](https://[i.imgur.com/NRWNz68.png])
+![Radix sort](https://i.imgur.com/EPGR0fQ.png)
 
 ## General
 
